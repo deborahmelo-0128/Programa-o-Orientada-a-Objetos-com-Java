@@ -1,0 +1,81 @@
+PARADIGMA DE PROGRAMAÇÃO ESCOLHIDO
+
+O paradigma de programação mais indicado para o desenvolvimento do sistema de gerenciamento de biblioteca é a Programação Orientada a Objetos (POO).
+
+A escolha da POO se justifica pelo fato de o sistema possuir diversas entidades bem definidas, como Livro, Autor, Usuário e Empréstimo, que representam objetos do mundo real. Cada uma dessas entidades possui atributos próprios e comportamentos específicos, o que se encaixa perfeitamente nos conceitos de classes, objetos, atributos e métodos da Programação Orientada a Objetos.
+
+Além disso, as entidades do sistema se relacionam entre si de forma clara, como um Autor que possui vários Livros, um Usuário que pode realizar vários Empréstimos e um Empréstimo que associa um Livro a um Usuário. Esses relacionamentos são facilmente representados por meio de associações, cardinalidades e diagramas de classes, recursos característicos da POO.
+
+Outro ponto importante é o reuso de código. A Programação Orientada a Objetos permite a reutilização de classes e métodos, além da possibilidade de expansão do sistema no futuro, como a inclusão de novas funcionalidades (reservas, multas, categorias especiais de usuários), sem a necessidade de grandes alterações na estrutura existente.
+
+Quanto à eficiência, a POO proporciona um código mais organizado, legível e de fácil manutenção, o que é fundamental em sistemas que possuem regras de negócio e evoluem com o tempo, como um sistema de gerenciamento de biblioteca.
+
+Dessa forma, a Programação Orientada a Objetos se mostra a escolha mais adequada para o cenário apresentado.
+
+
+ELEMENTOS DO DIAGRAMA DE CLASSES
+
+As principais classes identificadas no sistema são:
+- Livro
+- Autor
+- Usuário
+- Empréstimo
+
+Cada classe possui atributos que representam suas características e métodos que representam seus comportamentos, de acordo com as regras de negócio do sistema.
+
+
+ATRIBUTOS DAS CLASSES
+
+Classe Livro:
+- titulo: String
+- genero: String
+- disponivel: boolean
+- autor: Autor
+
+Classe Autor:
+- nome: String
+- nacionalidade: String
+- obrasPublicadas: List<Livro>
+
+Classe Usuário:
+- nome: String
+- idade: int
+- historicoEmprestimos: List<Emprestimo>
+
+Classe Empréstimo:
+- dataRetirada: Date
+- dataPrevistaDevolucao: Date
+- dataDevolucao: Date
+- livro: Livro
+- usuario: Usuario
+
+
+RELACIONAMENTOS ENTRE AS CLASSES
+
+- Um Autor pode estar associado a vários Livros (1 para N).
+- Um Livro possui apenas um Autor (1 para 1).
+- Um Usuário pode realizar vários Empréstimos (1 para N).
+- Um Empréstimo está associado a um único Livro e a um único Usuário (1 para 1).
+- Um Livro pode participar de vários Empréstimos ao longo do tempo (1 para N).
+
+
+MÉTODOS DAS CLASSES
+
+Classe Livro:
+- marcarComoEmprestado()
+- marcarComoDisponivel()
+- inDisponivel()
+
+Classe Autor:
+- adicionarObra(Livro livro)
+- listarObras()
+
+Classe Usuário:
+- podeEmprestar(): boolean
+- adicionarEmprestimo(Emprestimo emprestimo)
+- possuiEmprestimosVencidos(): boolean
+
+Classe Empréstimo:
+- registrarRetirada()
+- registrarDevolucao()
+- calcularDataPrevistaDevolucao()
